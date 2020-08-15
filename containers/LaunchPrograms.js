@@ -1,10 +1,10 @@
-import { withRouter } from 'next/router';
 import axios from 'axios';
+import { withRouter } from 'next/router';
 
 import Filters from '../components/Filters';
 import ProgramsGrid from '../components/ProgramsGrid';
 
-class LaunchPrograms extends React.Component {
+export class LaunchPrograms extends React.Component {
     state = {
         launchYearOptions: [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
         launchSuccessfulOptions: [true, false],
@@ -13,19 +13,24 @@ class LaunchPrograms extends React.Component {
         selectedLaunchingOption: null,
         selectedLandingOption: null,
         programsData: null,
-        queryString: ''
+        queryString: '',
+        currentPage: 1,
+        totalPages: null
     };
 
     async componentDidUpdate() {
         const { queryString } = this.state;
         const routerDetails = this.props.router;
+
         if (queryString !== routerDetails.asPath.slice(2)) {
             const res = await axios(`https://api.spaceXdata.com/v3/launches?limit=100&` + queryString);
             const data = await res.data;
             this.setState(prevState => {
                 return {
                     ...prevState,
-                    programsData: [...data]
+                    programsData: [...data],
+                    totalPages: Math.ceil(data.length / 8),
+                    currentPage: 1
                 }
             });
         }
@@ -79,9 +84,34 @@ class LaunchPrograms extends React.Component {
         });
     };
 
+    gotoPrevious = () => {
+        this.setState(prevState => {
+            if (prevState.currentPage > 1) {
+                return {
+                    ...prevState,
+                    currentPage: prevState.currentPage - 1
+                };
+            }
+        });
+    };
+
+    gotoNext = () => {
+        const totalPages = this.state.totalPages || Math.ceil(this.props.programsData.length / 8);
+
+        this.setState(prevState => {
+            if (prevState.currentPage < totalPages) {
+                return {
+                    ...prevState,
+                    currentPage: prevState.currentPage + 1
+                };
+            }
+        });
+    }
+
     render() {
-        const { launchYearOptions, launchSuccessfulOptions, landSuccessfulOptions, programsData } = this.state;
-        console.log(programsData);
+        const { launchYearOptions, launchSuccessfulOptions, landSuccessfulOptions, programsData, currentPage, totalPages } = this.state;
+        const sliceOfData = (programsData || this.props.programsData).slice((currentPage - 1) * 8, (currentPage - 1) * 8 + 8);
+
         return (
             <main>
                 <div className="container">
@@ -95,7 +125,13 @@ class LaunchPrograms extends React.Component {
                             handleLaunchClick={this.changeLaunchStatus}
                             handleLandClick={this.changeLandStatus}
                         />
-                        <ProgramsGrid programsData={programsData || this.props.programsData} />
+                        <ProgramsGrid
+                            pageNumber={currentPage}
+                            totalPages={totalPages || Math.ceil(this.props.programsData.length / 8)}
+                            programsData={sliceOfData}
+                            gotoPrevious={this.gotoPrevious}
+                            gotoNext={this.gotoNext}
+                        />
                     </section>
                 </div>
                 <style jsx>{`

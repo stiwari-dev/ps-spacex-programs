@@ -1,4 +1,4 @@
-const ProgramsGrid = ({ programsData }) => {
+const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, gotoNext }) => {
     return (
         programsData.length ?
             (<>
@@ -23,8 +23,8 @@ const ProgramsGrid = ({ programsData }) => {
                                         :
                                         <div className="mission-ids">
                                             <span className="bold-text">Mission Ids:</span>&nbsp;
-                                        No IDs present
-                                    </div>
+                                            <span>No IDs present</span>
+                                        </div>
                                 }
                                 <div className="launch-year">
                                     <span className="bold-text">Launch Year:</span>&nbsp;
@@ -41,6 +41,12 @@ const ProgramsGrid = ({ programsData }) => {
                             </div>
                         ))
                     }
+                </div>
+                <div></div>
+                <div className="pagination bold-text">
+                    <span className="btn" onClick={gotoPrevious}>&lt; Prev</span>
+                    <span>{pageNumber} of {totalPages} Pages</span>
+                    <span className="btn" onClick={gotoNext}>Next &gt;</span>
                 </div>
                 <style jsx>{`
                         .program-grid {

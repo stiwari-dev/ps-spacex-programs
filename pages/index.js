@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { useEffect } from "react";
-import Router from "next/router";
 import Head from 'next/head';
+import Router from "next/router";
+import { useEffect } from "react";
 
 import LaunchPrograms from '../containers/LaunchPrograms';
 
@@ -9,7 +9,6 @@ const Home = ({ data }) => {
     useEffect(() => {
         Router.push('/');
     }, []);
-
 
     return (
         <>

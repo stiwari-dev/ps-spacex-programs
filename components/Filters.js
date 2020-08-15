@@ -1,5 +1,9 @@
 import { useRouter } from 'next/router';
 
+import LandSuccessOption from './LandSuccessOption';
+import LaunchSuccessOption from './LaunchSuccessOption';
+import YearOption from './YearOption';
+
 const Filters = ({ yearOptions, launchOptions, landOptions, handleYearClick, handleLaunchClick, handleLandClick }) => {
     const router = useRouter();
 
@@ -11,12 +15,7 @@ const Filters = ({ yearOptions, launchOptions, landOptions, handleYearClick, han
             </div>
             <div className="filter-options">
                 {
-                    yearOptions.map(year => (
-                        <span key={year} className="option">
-                            <input type="radio" id={year} value={year} name="year" onClick={handleYearClick} />
-                            <label htmlFor={year}>{year}</label>
-                        </span>
-                    ))
+                    yearOptions.map(year => <YearOption key={year} year={year} yearClicked={handleYearClick} />)
                 }
             </div>
             <div className="filter-title">
@@ -24,14 +23,7 @@ const Filters = ({ yearOptions, launchOptions, landOptions, handleYearClick, han
             </div>
             <div className="filter-options">
                 {
-                    launchOptions.map(option => (
-                        <span key={option} className="option">
-                            <input type="radio" id={`launch-${option}`} value={option} name="launch-option" onClick={handleLaunchClick} />
-                            <label htmlFor={`launch-${option}`}>
-                                {String(option).charAt(0).toUpperCase() + String(option).slice(1)}
-                            </label>
-                        </span>
-                    ))
+                    launchOptions.map(option => <LaunchSuccessOption key={option} option={option} launchClicked={handleLaunchClick} />)
                 }
             </div>
             <div className="filter-title">
@@ -39,14 +31,7 @@ const Filters = ({ yearOptions, launchOptions, landOptions, handleYearClick, han
             </div>
             <div className="filter-options">
                 {
-                    landOptions.map(option => (
-                        <span key={option} className="option">
-                            <input type="radio" id={`land-${option}`} value={option} name="land-option" onClick={handleLandClick} />
-                            <label htmlFor={`land-${option}`}>
-                                {String(option).charAt(0).toUpperCase() + String(option).slice(1)}
-                            </label>
-                        </span>
-                    ))
+                    landOptions.map(option => <LandSuccessOption key={option} option={option} landClicked={handleLandClick} />)
                 }
             </div>
             <style jsx>{`
@@ -76,30 +61,6 @@ const Filters = ({ yearOptions, launchOptions, landOptions, handleYearClick, han
                     margin: auto;
                     margin-bottom: 0.5rem;
                     max-width: 180px;
-                }
-
-                .option {
-                    margin-bottom: 1.5rem;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
-
-                .option label {
-                    background-color: lightgreen;
-                    padding: 0.25rem 1rem;
-                }
-
-                .option input {
-                    position: absolute;
-                    visibility: hidden;
-                }
-
-                .option input:checked + label {
-                    background-color: #228B22;
-                }
-
-                .option label {
-                    cursor: pointer;
                 }
             `}</style>
         </div>
