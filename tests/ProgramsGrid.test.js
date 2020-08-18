@@ -14,12 +14,12 @@ describe('<ProgramsGrid/>', () => {
     });
 
     it('should render No Data Found text when API doesnt return any value', () => {
-        expect(wrapper.contains(<div className="text-center bold-text">No data found</div>)).toEqual(true);
+        expect(wrapper.contains(<div className="text-center"><strong>No data found</strong></div>)).toEqual(true);
     });
 
     it('should render ProgramGrid when API returns atleast a value', () => {
         wrapper = shallow(<ProgramsGrid programsData={programsMockData} />);
-        expect(wrapper.contains(<div className="text-center bold-text">No data found</div>)).toEqual(false);
+        expect(wrapper.contains(<div className="text-center"><strong>No data found</strong></div>)).toEqual(false);
     });
 
     it('should not contain No IDs present if there is mission IDs present', () => {

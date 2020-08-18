@@ -44,7 +44,8 @@ const Filters = ({ yearOptions, launchOptions, landOptions, handleYearClick, han
                 }
 
                 .filter-title {
-                    width: 80%;
+                    width: 85%;
+                    max-width: 150px;
                     text-align: center;
                     margin: auto;
                     margin-bottom: 1rem;

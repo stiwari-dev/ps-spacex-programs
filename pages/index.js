@@ -18,11 +18,27 @@ const Home = ({ data }) => {
             </Head>
             <LaunchPrograms programsData={data} />
             <footer>
-                <div className="container text-center">
-                    <span className="bold-text">Developed by: </span>
-                    <span>Shubham Tiwari </span>
+                <div className="container">
+                    <span><strong>Developed by:&nbsp;</strong></span>
+                    <span>Shubham Tiwari</span>
                 </div>
             </footer>
+            <style jsx>{`
+                footer .container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 20px;
+                }
+
+                @media screen and (min-width: 700px) {
+                    footer .container {
+                        flex-direction: row;
+                    }
+                }
+            `
+            }</style>
         </>
     );
 };

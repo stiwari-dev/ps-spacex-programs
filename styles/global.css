@@ -41,13 +41,13 @@ img {
 
 .option {
     margin-bottom: 1.5rem;
-    border-radius: 5px;
     cursor: pointer;
 }
 
 .option label {
     background-color: lightgreen;
     padding: 0.25rem 1rem;
+    border-radius: 5px;
 }
 
 .option input {

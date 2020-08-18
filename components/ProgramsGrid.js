@@ -9,7 +9,7 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                                 <div className="cell-image">
                                     <img src={data.links.mission_patch_small} alt="image" />
                                 </div>
-                                <div className="mission-name bold-text">{data.mission_name} #{data.flight_number}</div>
+                                <div className="mission-name"><strong>{data.mission_name} #{data.flight_number}</strong></div>
                                 {
                                     data.mission_id.length ?
                                         <div className="mission-ids">
@@ -22,20 +22,20 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                                         </div>
                                         :
                                         <div className="mission-ids">
-                                            <span className="bold-text">Mission Ids:</span>&nbsp;
+                                            <span><strong>Mission Ids:</strong></span>&nbsp;
                                             <span>No IDs present</span>
                                         </div>
                                 }
                                 <div className="launch-year">
-                                    <span className="bold-text">Launch Year:</span>&nbsp;
+                                    <span><strong>Launch Year:</strong></span>&nbsp;
                                 <span>{data.launch_year}</span>
                                 </div>
                                 <div className="successful-launch">
-                                    <span className="bold-text">Successful Launch:</span>&nbsp;
+                                    <span><strong>Successful Launch:</strong></span>&nbsp;
                                 <span>{`${data.launch_success}`}</span>
                                 </div>
                                 <div className="successful-landing">
-                                    <span className="bold-text">Successful Landing:</span>&nbsp;
+                                    <span><strong>Successful Landing:</strong></span>&nbsp;
                                 <span>{`${data.land_success || 'NA'}`}</span>
                                 </div>
                             </div>
@@ -52,13 +52,16 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                         .program-grid {
                             display: grid;
                             grid-template-columns: 1fr;
-                            grid-gap: 0.75rem;
+                            grid-row-gap: 0.75rem;
+                            grid-column-gap: 0.25rem;
                         }
 
                         .cell {
+                            width: 100%;
+                            height: auto;
+                            margin: 0 auto;
                             background-color: #ffffff;
-                            padding: 0.5rem 1rem;
-                            max-height: auto;
+                            padding: 1rem;
                             overflow: hidden;
                         }
 
@@ -66,9 +69,8 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                             width: 100%;
                             height: auto;
                             margin: auto;
-                            max-width: 356px;
-                            max-height: 356px;
                             margin-bottom: 0.5rem;
+                            background-color: #E0E0E0;
                         }
 
                         .mission-name {
@@ -93,10 +95,10 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                             .program-grid {
                                 display: grid;
                                 grid-template-columns: 1fr 1fr;
-                                grid-gap: 0.75rem;
                             }
 
                             .cell {
+                                width: 95%;
                                 max-height: 480px;
                                 overflow: hidden;
                             }
@@ -106,10 +108,10 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                             .program-grid {
                                 display: grid;
                                 grid-template-columns: repeat(4, 1fr);
-                                grid-gap: 0.75rem;
                             }
 
                             .cell {
+                                width: 95%;
                                 max-height: 480px;
                                 overflow: hidden;
                             }
@@ -117,7 +119,7 @@ const ProgramsGrid = ({ programsData, pageNumber, totalPages, gotoPrevious, goto
                     `}</style>
             </>)
             :
-            (<div className="text-center bold-text">No data found</div>)
+            (<div className="text-center"><strong>No data found</strong></div>)
     );
 };
 

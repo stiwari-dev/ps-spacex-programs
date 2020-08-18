@@ -145,7 +145,7 @@ export class LaunchPrograms extends React.Component {
                     @media screen and (min-width: 700px) and (max-width: 1024px) {
                         .launch-programs {
                             display: grid;
-                            grid-template-columns: 27% 63%;
+                            grid-template-columns: 27% 70%;
                             margin: 0.5rem 0;
                         }
                     }
