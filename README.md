@@ -48,5 +48,5 @@ All at once: https://api.spaceXdata.com/v3/launches?limit=100&launch_success=tru
 <img src="https://i.ibb.co/dtrP3VP/mobile-view-2.png" alt="mobile-view-2" border="0">
 
 4. Lighthouse Report-<br/>
-<img src="https://i.ibb.co/GV3p1xG/lighthouse-report.png" alt="lighthouse-report" border="0">
+<img src="https://i.ibb.co/f8Fzph3/light-house-report.png" alt="light-house-report" border="0">
 
