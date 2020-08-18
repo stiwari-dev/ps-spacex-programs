@@ -36,15 +36,16 @@ All at once: https://api.spaceXdata.com/v3/launches?limit=100&launch_success=tru
 ### Screenshots
 
 1. Desktop View-<br/>
-<img src="https://i.ibb.co/x3b1dH2/desktop-view-1.png" alt="desktop-view-1" border="0">
-<img src="https://i.ibb.co/8x6VQHw/desktop-view-2.png" alt="desktop-view-2" border="0">
+<img src="https://i.ibb.co/qNw1Rdp/desktop-view.png" alt="desktop-view" border="0">
+<img src="https://i.ibb.co/qDdNNVG/desktop-view-2.png" alt="desktop-view-2" border="0">
 
 2. Tablet View-<br/>
-<img src="https://i.ibb.co/26302tx/tablet-view.png" alt="tablet-view" border="0">
+<img src="https://i.ibb.co/LxCf2fX/tablet-view-1.png" alt="tablet-view-1" border="0">
+<img src="https://i.ibb.co/cXf74Fb/tablet-view-2.png" alt="tablet-view-2" border="0">
 
 3. Mobile View-<br/>
-<img src="https://i.ibb.co/g6RHs2Q/mobile-view-1.png" alt="mobile-view-1" border="0">
-<img src="https://i.ibb.co/gyXDFFS/mobile-view-2.png" alt="mobile-view-2" border="0">
+<img src="https://i.ibb.co/k4154gW/mobile-view-1.png" alt="mobile-view-1" border="0">
+<img src="https://i.ibb.co/dtrP3VP/mobile-view-2.png" alt="mobile-view-2" border="0">
 
 4. Lighthouse Report-<br/>
 <img src="https://i.ibb.co/GV3p1xG/lighthouse-report.png" alt="lighthouse-report" border="0">
